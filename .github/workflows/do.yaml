@@ -27,7 +27,7 @@ jobs:
           key: ${{ env.EC2_PRIVATE_KEY }}
           script: |
             sudo chown -R ${{ env.EC2_USERNAME }}:${{ env.EC2_USERNAME }} ${{ env.DEPLOY_PATH }}
-            sudo chown -R 755 ${{ env.DEPLOY_PATH }}
+            sudo chmod -R 755 ${{ env.DEPLOY_PATH }}
 
       - name: Deploy to EC2
         uses: appleboy/scp-action@v0.1.7
