@@ -1,19 +1,21 @@
 name: Github Actions 실행하기
 
 on:
-push:
-branches:
-  - main
+  push:
+    branches:
+      - main
 
 jobs:
-My-First-CICD-Job:
-runs-on: ubuntu-latest
+  My-First-CICD-Job:
+    runs-on: ubuntu-latest
 
-step:
-  - name: simple-web
-    run: |
-      pwd
-      ls -al
-      echo "This is the first cicd step“ >> a.txt
-      ls -al 
-      cat a.txt
+    steps:
+      - name: file-check
+        run: |
+          pwd
+          ls -al
+      - name: file-create
+        run: |
+          echo "This is the first cicd step" >> a.txt
+          ls -al
+          cat a.txt
